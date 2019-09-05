@@ -5,9 +5,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import volski.TextFunction;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +30,19 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        SetText();
+        for (int i = 0; i < 10; i++) {
+            Log.d("Main","Tetst");
+
+        }
+
+    }
+
+    private void SetText() {
+        TextView tv = findViewById(R.id.time);
+        TextFunction textFunction = new TextFunction();
+        tv.setText(textFunction.GetValue());
     }
 
     @Override
