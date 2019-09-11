@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items">
+        <item>Малоподвижный образ жизни</item>
+        <item>Подвижный образ жизни</item>
+        <item>Активный образ жизни</item>
+        <item>Интенсивный образ жизни</item>
+    </string-array>
+</resources>
