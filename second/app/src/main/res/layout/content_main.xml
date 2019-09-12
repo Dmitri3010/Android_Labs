@@ -158,8 +158,8 @@
 
     <TextView
         android:id="@+id/input"
-        android:layout_width="7dp"
-        android:layout_height="16dp"
+        android:layout_width="283dp"
+        android:layout_height="50dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="596dp"
         android:text=""
