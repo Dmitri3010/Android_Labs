@@ -51,8 +51,7 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="301dp"
+        android:layout_marginTop="300dp"
         android:text="Возраст"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -69,8 +68,8 @@
 
     <EditText
         android:id="@+id/height"
-        android:layout_width="216dp"
-        android:layout_height="31dp"
+        android:layout_width="223dp"
+        android:layout_height="36dp"
         android:layout_marginStart="114dp"
         android:layout_marginTop="233dp"
         android:ems="10"
@@ -88,7 +87,7 @@
         android:layout_marginStart="123dp"
         android:layout_marginTop="291dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView5"
@@ -97,7 +96,7 @@
 
     <EditText
         android:id="@+id/weight"
-        android:layout_width="wrap_content"
+        android:layout_width="222dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="111dp"
         android:layout_marginTop="168dp"
@@ -124,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:text="М" />
 
         <RadioButton
@@ -146,21 +146,24 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="512dp"
-        android:text="Рассчитать"
+        android:layout_width="108dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="456dp"
+        android:background="@drawable/calcs"
+        android:onClick="onclick"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="591dp" />
+        android:layout_width="7dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="596dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
