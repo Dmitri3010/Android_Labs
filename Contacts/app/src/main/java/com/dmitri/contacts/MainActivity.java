@@ -3,6 +3,7 @@ package com.dmitri.contacts;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,6 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
-
-import models.DBHelper;
 import models.DBHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,21 +22,21 @@ public class MainActivity extends AppCompatActivity {
     Cursor userCursor;
     SimpleCursorAdapter userAdapter;
     ListView userList;
-    List<String> phones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbHelper = new DBHelper(getApplicationContext());
-        userList = (ListView)findViewById(R.id.listView);
+        userList = findViewById(R.id.listView);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         db = dbHelper.getReadableDatabase();
-        userCursor =  db.rawQuery("select * from "+ DBHelper.TABLE, null);
+        Async async = new Async();
+        userCursor =  async.doInBackground();
         final String[] headers = new String[] {DBHelper.Name, DBHelper.Phone};
 
         userAdapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, userCursor, headers, new int[]{android.R.id.text1, android.R.id.text2}, 0);
@@ -107,5 +105,22 @@ public class MainActivity extends AppCompatActivity {
     public void Delete(View view){
         String query = String.format("delete  FROM %s ", DBHelper.TABLE);
         db.execSQL(query);
+    }
+
+    public class Async extends AsyncTask<Void, Integer, Cursor> {
+        @Override
+        protected Cursor doInBackground(Void... unused) {
+return  db.rawQuery("select * from "+ DBHelper.TABLE, null);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... items) {
+
+        }
+        @Override
+        protected void onPostExecute(Cursor unused) {
+            Toast.makeText(getApplicationContext(), "Async load compleate", Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
 }
